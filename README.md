@@ -42,6 +42,17 @@ Requires PostgreSQL (PostGIS) and Redis running locally — see `docker-compose.
 
 ## API Highlights
 
+### GTFS data (not included)
+
+The TransMilenio/SITP GTFS feed is not included in this repository because `stop_times.txt` is larger than GitHub's 100 MB file limit.
+
+To run the transit routing features:
+
+1. Download the GTFS feed from TransMilenio's open data portal (version used: GTFS-2026-04-29).
+2. Extract the files into `backend/data/gtfs/` so it contains `agency.txt`, `calendar.txt`, `routes.txt`, `shapes.txt`, `stops.txt`, `stop_times.txt` and `trips.txt`.
+3. Alternatively, set `GTFS_PATH` in `backend/.env` to the folder where the files are located.
+
+
 | Endpoint | Description |
 |---|---|
 | `POST /api/v1/routes/compute` | Spec ACO contract (lat/lng or campus IDs) |
